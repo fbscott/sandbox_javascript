@@ -58,17 +58,16 @@ var Alien = function(options) {
 
 // add property "message" to Alien obj
 Alien.prototype.message = function(text) {
-   return text;
+   return this.name + text;
 };
 
 var alien = new Alien(xenomorph);
 
-
 if(alien.hazardous) {
    console.log(alien.name + ' is hazardous! Avoid contact!');
    console.log('Weapons include: ' + utilities.getMembers(alien.weapons));
-   console.log(alien.message(alien.name + ' will kill you. Run for your life!'));
+   console.log(alien.message(' will kill you. Run for your life!'));
 } else {
    console.log(alien.name + ' is friendly. Go ahead and pet the little fella!');
-   console.log(alien.message(alien.name + ' gets homesick.'));
+   console.log(alien.message(' gets homesick.'));
 };
