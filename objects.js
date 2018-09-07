@@ -1,3 +1,32 @@
+/*****************************************************************************
+ * Aliens Objects
+ ****************************************************************************/
+var et = {
+   name: 'E.T.',
+   origin: 'unknown',
+   discovered: 'Earth',
+   hazardous: false,
+   attributes: {
+      blood: 'white',
+      skeletal_system: 'endoskeleton'
+   },
+   weapons: [],
+   info: 'wants to go home.'
+};
+
+var predator = {
+   name: 'Predator',
+   origin: 'unknown',
+   discovered: 'Earth',
+   hazardous: true,
+   attributes: {
+      blood: 'green',
+      skeletal_system: 'endoskeleton'
+   },
+   weapons: ['shoulder-mounted cannon', 'retractable blades'],
+   info: 'will remove your spine!'
+};
+
 var xenomorph = {
    name: 'Xenomorph',
    origin: 'unknown',
@@ -7,68 +36,67 @@ var xenomorph = {
       blood: 'acid',
       skeletal_system: 'exoskeleton'
    },
-   weapons: ['claws', 'proboscis', 'tail', 'acidic blood']
+   weapons: ['claws', 'proboscis', 'tail', 'acidic blood'],
+   info: 'will punch through your skull!'
 };
 
-var predator = {
-   name: 'Predator',
-   origin: 'unknown',
-   discovered: 'unknown',
-   hazardous: true,
-   attributes: {
-      blood: 'green',
-      skeletal_system: 'endoskeleton'
-   },
-   weapons: ['shoulder-mounted cannon', 'retractable blades']
-};
-
-var et = {
-   name: 'E.T.',
-   origin: 'unknown',
-   discovered: 'unknown',
-   hazardous: false,
-   attributes: {
-      blood: 'white',
-      skeletal_system: 'endoskeleton'
-   },
-   weapons: []
-};
-
-var utilities = {
-   getMembers: function(targetObject) {
-      var members = '';
-
-      // take 'targetObject' and loop through all of its members
-      for(i in targetObject) {
-         members += (targetObject[i]);
-      }
-
-      return members;
+/*****************************************************************************
+ * Alien Constructor Function
+ ****************************************************************************/
+function Alien(options) {
+   // Scope-safe check. Makes sure all instances of "Alien" are called with
+   // the "new" keyword.
+   if(!(this instanceof Alien)) {
+      return new Alien(options);
    }
-};
 
-var Alien = function(options) {
    this.name       = options.name;
    this.origin     = options.origin;
    this.discovered = options.discovered;
    this.hazardous  = options.hazardous;
    this.attributes = options.attributes;
    this.weapons    = options.weapons;
+   this.info       = options.info;
 };
 
-// add property "message" to Alien obj
+/*****************************************************************************
+ * Add a "message" method to the Alien Constructor
+ ****************************************************************************/
 Alien.prototype.message = function(text) {
-   return text;
+   return this.name + ' ' + text;
 };
 
-var alien = new Alien(xenomorph);
+/*****************************************************************************
+ * UTILITIES: Do stuff with the data
+ ****************************************************************************/
+var utilities = {
+   getMembers: function(targetObject) {
+      var members = [];
 
+      // take 'targetObject' and loop through all of its members
+      for(i in targetObject) {
+         members.push(targetObject[i]);
+      }
 
-if(alien.hazardous) {
-   console.log(alien.name + ' is hazardous! Avoid contact!');
-   console.log('Weapons include: ' + utilities.getMembers(alien.weapons));
-   console.log(alien.message(alien.name + ' will kill you. Run for your life!'));
-} else {
-   console.log(alien.name + ' is friendly. Go ahead and pet the little fella!');
-   console.log(alien.message(alien.name + ' gets homesick.'));
+      return members;
+   }
 };
+
+/*****************************************************************************
+ * New instance of Alien()
+ ****************************************************************************/
+var alien = new Alien(et);
+
+/*****************************************************************************
+ * IIFE - Run some consoles for testing purposes
+ ****************************************************************************/
+(function() {
+   if(alien.hazardous) {
+      console.log(alien.message('is HAZARDOUS!!! AVOID CONTACT!!!'));
+      console.log('Weapons include: ' + utilities.getMembers(alien.weapons));
+      console.log(alien.message(alien.info + ' Run for your life!'));
+   } else {
+      console.log(alien.message('is friendly. Go ahead and pet the little fella!'));
+      console.log(alien.message(alien.info));
+   };
+})();
