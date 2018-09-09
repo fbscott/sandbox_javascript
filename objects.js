@@ -99,8 +99,8 @@ var utilities = {
       var members = [];
 
       // take 'targetObject' and loop through all of its members
-      for(i in targetObject) {
-         members.push(targetObject[i]);
+      for(var property in targetObject) {
+         members.push(targetObject[property]);
       }
 
       return members;
