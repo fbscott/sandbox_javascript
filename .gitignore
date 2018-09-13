@@ -3,5 +3,3 @@
 
 # Built/compiled files
 /build
-bundle.js
-package-lock.json
