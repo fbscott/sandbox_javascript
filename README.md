@@ -1,3 +1,11 @@
 # JavaScript Sandbox
+<br>
+## Building the App
 
-Notes, tests, PoC, etc.
+### Build with Browserify:
+
+	browserify src/objects.js > build/bundle.js
+
+### Build with Grunt:
+
+	grunt
