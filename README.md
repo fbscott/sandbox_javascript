@@ -1,5 +1,5 @@
 # JavaScript Sandbox
-<br>
+
 ## Building the App
 
 ### Build with Browserify:
