@@ -1,7 +1,8 @@
 /*****************************************************************************
  * Import Modules
  ****************************************************************************/
-var aliens = require('./aliens.js');
+var Aliens = require('./aliens.js');
+var Utilities = require('./utilities');
 
 /*****************************************************************************
  * Alien Constructor Function
@@ -55,25 +56,9 @@ Alien.prototype.loop = function() {
 }
 
 /*****************************************************************************
- * UTILITIES: Do stuff with the data
- ****************************************************************************/
-var utilities = {
-    getMembers: function(targetObject) {
-    var members = [];
-
-    // take 'targetObject' and loop through all of its members
-    for(var property in targetObject) {
-        members.push(targetObject[property]);
-    }
-
-        return members;
-    }
-};
-
-/*****************************************************************************
  * New instance of Alien()
  ****************************************************************************/
-var alien = new Alien(aliens.et);
+var alien = new Alien(Aliens.xenomorph);
 
 /*****************************************************************************
  * IIFE - Run some consoles for testing purposes
@@ -81,12 +66,11 @@ var alien = new Alien(aliens.et);
 (function() {
     if(alien.hazardous) {
         console.log(alien.message('is HAZARDOUS!!! AVOID CONTACT!!!'));
-        console.log('Weapons include: ' + utilities.getMembers(alien.weapons));
+        console.log('Weapons include: ' + Utilities.getMembers(alien.weapons));
         console.log(alien.message(alien.info + ' Run for your life!'));
-        // alien.loop();
+        alien.loop();
     } else {
         console.log(alien.message('is friendly. Go ahead and pet the little fella!'));
         console.log(alien.message(alien.info));
-        // alien.loop();
     };
 })();
