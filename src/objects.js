@@ -73,7 +73,7 @@ var utilities = {
 /*****************************************************************************
  * New instance of Alien()
  ****************************************************************************/
-var alien = new Alien(aliens.xenomorph);
+var alien = new Alien(aliens.et);
 
 /*****************************************************************************
  * IIFE - Run some consoles for testing purposes
