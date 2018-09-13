@@ -4,12 +4,8 @@
 
 ### Build with Browserify:
 
-Currently works.
-
 	browserify src/objects.js > build/bundle.js
 
 ### Build with Grunt:
-
-**NOT** currently working.
 
 	grunt
