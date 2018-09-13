@@ -1,1 +1,7 @@
-# Nothing yet. Placeholder.
+# Build Dependencies
+/node_modules
+
+# Built/compiled files
+/build
+bundle.js
+package-lock.json

@@ -1,3 +1,10 @@
 # JavaScript Sandbox
+<br>
+## Building the App
 
-Notes, tests, PoC, etc.
+### Build with Browserify:
+
+Currently works.
+
+	browserify src/objects.js > build/bundle.js
+
