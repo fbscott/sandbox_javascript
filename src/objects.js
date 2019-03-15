@@ -39,13 +39,13 @@ Alien.prototype.message = function(text) {
  * between standard and arrow functions with respect to the "this" keyword
  ****************************************************************************/
 Alien.prototype.loop = function() {
-    // Create a new variable "that" for use in subroutines
-    var that = this;
+    // Create a new variable "_this" for use in subroutines
+    var _this = this;
 
     setInterval(function() {
-        // Must use var "that" since "this" is scoped to the "loop" method, not
+        // Must use var "_this" since "this" is scoped to the "loop" method, not
         // the setInterval function.
-        console.log(that.discovered); // <--- that
+        console.log(_this.discovered); // <--- _this
     }, 1000);
 
     // Arrow functions fix the "this" problem. Now "this" is appropriately
@@ -58,7 +58,7 @@ Alien.prototype.loop = function() {
 /*****************************************************************************
  * New instance of Alien()
  ****************************************************************************/
-var alien = new Alien(Aliens.xenomorph);
+var alien = new Alien(Aliens.et);
 
 /*****************************************************************************
  * IIFE - Run some consoles for testing purposes
@@ -68,7 +68,7 @@ var alien = new Alien(Aliens.xenomorph);
         console.log(alien.message('is HAZARDOUS!!! AVOID CONTACT!!!'));
         console.log('Weapons include: ' + Utilities.getMembers(alien.weapons));
         console.log(alien.message(alien.info + ' Run for your life!'));
-        alien.loop();
+        // alien.loop();
     } else {
         console.log(alien.message('is friendly. Go ahead and pet the little fella!'));
         console.log(alien.message(alien.info));
