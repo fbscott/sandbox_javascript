@@ -12,4 +12,4 @@
 
 ### Run with node
 
-   node build/bundle.min.js
+	node build/bundle.min.js
