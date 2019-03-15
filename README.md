@@ -9,3 +9,7 @@
 ### Build with Grunt:
 
 	grunt
+
+### Run with node
+
+   node build/bundle.min.js
