@@ -4,7 +4,7 @@
  * } 
  */
 var Product = Product || {
-   name: function(price) {
+   price: function(price) {
       this.price = price;
       this.discountPrice = function(discount) {
          return this.price - (this.price * discount);
@@ -29,7 +29,7 @@ var Product = Product || {
    }
 };
 
-var n = new Product.name(150);
+var n = new Product.price(150);
 console.log('price: ', n.price);
 console.log('discountPrice: ', n.discountPrice(0.25));
 console.log('name: ', n.name('Scott'));
