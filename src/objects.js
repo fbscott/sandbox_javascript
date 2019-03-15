@@ -58,7 +58,7 @@ Alien.prototype.loop = function() {
 /*****************************************************************************
  * New instance of Alien()
  ****************************************************************************/
-var alien = new Alien(Aliens.xenomorph);
+var alien = new Alien(Aliens.et);
 
 /*****************************************************************************
  * IIFE - Run some consoles for testing purposes
@@ -68,7 +68,7 @@ var alien = new Alien(Aliens.xenomorph);
         console.log(alien.message('is HAZARDOUS!!! AVOID CONTACT!!!'));
         console.log('Weapons include: ' + Utilities.getMembers(alien.weapons));
         console.log(alien.message(alien.info + ' Run for your life!'));
-        alien.loop();
+        // alien.loop();
     } else {
         console.log(alien.message('is friendly. Go ahead and pet the little fella!'));
         console.log(alien.message(alien.info));
